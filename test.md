@@ -1,5 +1,5 @@
-#实验一
-##分析oracle12c教材上的查询语句
+# 实验一
+## 分析oracle12c教材上的查询语句
 - 语句一：
     
     
@@ -9,7 +9,7 @@
     
     
     
-##给出的实验语句分析
+## 给出的实验语句分析
 
 - 语句一：
 
@@ -36,7 +36,7 @@ GROUP BY department_name
 HAVING d.department_name in ('IT'，'Sales');
 ```
 
-##自定义语句
+## 自定义语句
 
 - 语句一：
 
