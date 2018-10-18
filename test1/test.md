@@ -97,7 +97,16 @@ Merge Join：
 使用Merge Join这种连接比nested loop这种连接。更消耗cpu的资源利用率。总的来说第一中查询方法是比较好的
 ## 自定义语句
 
-- 语句一：
+- 语句一：  
+```$xslt
+select * from jobs,job_history where 
+jobs.JOB_ID in (select JOB_ID from job_history)
+```
+![查询结果](select6.png)
 
-
-- 语句二：
+- 语句二：  
+```$xslt
+select * from jobs,job_history where 
+jobs.job_id = job_history.job_id;
+```
+![查询结果](select5.png)
