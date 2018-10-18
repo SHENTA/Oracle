@@ -103,6 +103,9 @@ select * from jobs,job_history where
 jobs.JOB_ID in (select JOB_ID from job_history)
 ```
 ![查询结果](select6.png)
+分析：  
+这是一种先执行merge join连接，然后再执行hash join连接的查询
+一共消耗10个cpu资源
 
 - 语句二：  
 ```$xslt
@@ -110,3 +113,13 @@ select * from jobs,job_history where
 jobs.job_id = job_history.job_id;
 ```
 ![查询结果](select5.png)
+分析：  
+这个查询只执行了meger join连接
+只消耗6个cpu资源
+
+
+***对比***  
+第一种查询相比较第二种多了一个连接。并且第一种是先查数据在连接两张表显示数据
+，最后再选择两张表里面都具有的JOB_ID。  
+
+第二种比第一种更优秀
