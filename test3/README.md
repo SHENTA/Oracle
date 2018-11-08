@@ -1,14 +1,14 @@
 # 实验三
 
-##第一步：以管理员身份分配表空间给我自己的用户（new_user_liujun）
+## 第一步：以管理员身份分配表空间给我自己的用户（new_user_liujun）  
 ALTER USER new_user_liujun QUOTA 50M ON users;  
 
 ALTER USER new_user_liujun QUOTA 50M ON users02;  
 
 ALTER USER new_user_liujun QUOTA 50M ON users03;  
-![](fenpei.png )
+![](fenpei.png )  
 
-##第二步：新建orders表并以年份为范围分区到users，users02，users03
+## 第二步：新建orders表并以年份为范围分区到users，users02，users03  
 ```$xslt
 CREATE TABLE orders 
 (
@@ -40,8 +40,8 @@ TO_DATE(' 2018-01-01 00:00:00', 'SYYYY-MM-DD HH24:MI:SS',
 NOLOGGING TABLESPACE USERS03
 );
 ```
-![](orders.png)
-##第三步：创建order_details为orders的从表并根据orders的分区进行分区
+![](orders.png)  
+##  第三步：创建order_details为orders的从表并根据orders的分区进行分区  
 ```$xslt
 CREATE TABLE order_details
 (
@@ -61,8 +61,8 @@ STORAGE( BUFFER_POOL DEFAULT )
 NOCOMPRESS NOPARALLEL
 PARTITION BY REFERENCE (order_details_fk1);
 ```
-![](orders_details.png)
-##第四步插入数据到orders表中
+![](orders_details.png)  
+## 第四步插入数据到orders表中  
 ```$xslt
 begin
 for i in 1..4000
@@ -95,9 +95,9 @@ end;
 /
 ```
 
-![](data.png)
+![](data.png)  
 
-##第四步插入数据到orders_detail表中
+## 第四步插入数据到orders_detail表中  
 ```$xslt
 begin
 for i in 8001..12000
@@ -108,9 +108,9 @@ end loop;
 end;
 /
 ```
-![](ordes_de.png)
+![](ordes_de.png)  
 
-##第五步联合查询：
+## 第五步联合查询：  
 ```$xslt
 SELECT
     orders.order_id,
@@ -123,17 +123,17 @@ FROM orders partition (PARTITION_BEFORE_2016) LEFT JOIN order_details partition 
 ON (orders.order_id = order_details.order_id);
     
 ```
-![](select.png)  
+![](select.png)   
 
 ![](plan.jpg)  
 
-![](plan2.jpg)
+![](plan2.jpg)  
 
-##不分区对比：
-![](1.png)
-![](2.png)
+##  不分区对比：  
+![](1.png)  
+![](2.png)  
 
-##对比：  
+##  对比：    
 - 同样多的数据分区后的查询：  
 cpu消耗275 ，consistent gets=137
 - 不分区：  
