@@ -1,7 +1,7 @@
 # 实验4：对象管理
 
-# 一创建表：  
-- EMPLOYEES表：  
+# 创建表：  
+## - EMPLOYEES表：  
 ```aidl
 CREATE TABLE EMPLOYEES 
 (
@@ -26,7 +26,7 @@ employees表的name列的不唯一索引：
 create UNIQUE INDEX EMPLOYEE_NAME ON EMPLOYEES (NAME ASC);
 ```   
 
-- DEPARTMENTS表： 
+## - DEPARTMENTS表： 
 ```aidl
 CREATE TABLE DEPARTMENTS 
 (
@@ -35,7 +35,7 @@ CREATE TABLE DEPARTMENTS
 ) 
 TABLESPACE USERS
 ```
- - PRODUCTS表：
+## - PRODUCTS表：
  ```aidl
 CREATE TABLE DEPARTMENTS 
 (
@@ -44,7 +44,7 @@ CREATE TABLE DEPARTMENTS
 ) 
 TABLESPACE USERS 
 ```  
-- orders表：  
+## - orders表：  
 ```aidl
 CREATE TABLE ORDERS 
 (
@@ -71,7 +71,7 @@ CREATE SEQUENCE SEQ_ORDER_ID
 INCREMENT BY 1
 START WITH 1;
 ````
-- ORDER_DETAILS表:  
+## - ORDER_DETAILS表:  
 ```aidl
 CREATE TABLE ORDER_DETAILS 
 (
