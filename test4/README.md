@@ -1,6 +1,5 @@
 # 实验4：对象管理
-
-- ## **查询某个员工的信息**: 
+- ## *查询某个员工的信息*: 
 ```aidl
 select * from employees where employee_id=1;
 ```  
@@ -36,8 +35,9 @@ where a.order_id=b.order_id and b.product_name=c.product_name;
 - ## **查询出所有空订单，即没有订单详单的订单。**  
 ```aidl
 select orders.*
-from orders,order_details
-where orders.order_id!=order_details.order_id
+from orders a left join order_details b
+on a.order_id=b.order_id
+where b.order_id is null
 ```
 ![](not.png)  
 - ## **查询部门表，同时显示部门的负责人姓名**  
