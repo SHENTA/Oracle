@@ -13,7 +13,7 @@
 - GRANT connection TO new_user_liujun;  
 把角色connection授权给new_user_liujun用户。  
 
-![](liujun.png "创建角色")
+![](截图1.png "创建角色")
 ***此时new_user_liujun用户具有连接，查询，创建表、过程、触发器、视图等功能；***
 
 ## 第二步：
