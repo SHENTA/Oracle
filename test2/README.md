@@ -7,11 +7,7 @@
 授权连接，和resource，和创建视图的权力给connection角色  
 ![](grant_connection.png "创建角色")
 - CREATE USER new_user_liujun IDENTIFIED BY 123 DEFAULT TABLESPACE users TEMPORARY TABLESPACE temp;  
-创建了一个新的用户 new_user_liujun密码是123.默认表空间users，临时表表空间是temp；
-- ALTER USER new_user_liujun QUOTA 50M ON users;
-给用户new_user_liujun在users表空间上配额50M;
-- GRANT connection TO new_user_liujun;  
-把角色connection授权给new_user_liujun用户。  
+
 
 ![](截图1.png "创建角色")
 ***此时new_user_liujun用户具有连接，查询，创建表、过程、触发器、视图等功能；***
@@ -38,5 +34,5 @@
 - sqlplus hr/123@pdborcl  
 以hr用户登录
 - SELECT * FROM new_user.myview  
-查询new_user_liujun用户创建的myview视图
+查询st用户创建的myview视图
 ![](select_view.png "创建角色")
