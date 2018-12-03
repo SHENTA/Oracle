@@ -6,16 +6,16 @@
 - GRANT connect,resource,CREATE VIEW TO connection;  
 授权连接，和resource，和创建视图的权力给connection角色  
 ![](grant_connection.png "创建角色")
-- CREATE USER new_user_liujun IDENTIFIED BY 123 DEFAULT TABLESPACE users TEMPORARY TABLESPACE temp;  
+- CREATE USER new_user_st IDENTIFIED BY 123 DEFAULT TABLESPACE users TEMPORARY TABLESPACE temp;  
 
 
 ![](截图1.png "创建角色")
-***此时new_user_liujun用户具有连接，查询，创建表、过程、触发器、视图等功能；***
+***此时st用户具有连接，查询，创建表、过程、触发器、视图等功能；***
 
 ## 第二步：
-- sqlplus new_user_liujun/123@pdborcl  
-以new_user_liujun的身份登录pdborcl
-![](liujun_connection.png "创建角色")
+- sqlplus new_user_st/123@pdborcl  
+以st的身份登录pdborcl
+![](st_connection.png "创建角色")
 - CREATE TABLE mytable (id number,name varchar(50));  
 创建一张名为mytable的表，有number型的id字段，和长度为50的varchar类型的name字段
 ![](create_table.png "创建角色")
